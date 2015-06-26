@@ -279,7 +279,7 @@ function insertEmojis(text) {
 
 function hr(inputHrStr, length) {
   length = length || process.stdout.columns;
-  return (new Array(length)).join(inputHrStr);
+  return (new Array(length)).join(inputHrStr) + '\n';
 }
 
 function tab(size) {
