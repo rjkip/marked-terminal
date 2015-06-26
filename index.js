@@ -102,6 +102,7 @@ Renderer.prototype.hr = function() {
 
 Renderer.prototype.list = function(body, ordered) {
   body = indentLines(this.o.listitem(body));
+  body = body.split('\n').slice(1).join('\n');
   if (ordered) {
     body = changeToOrdered(body);
   }
