@@ -102,8 +102,23 @@ Renderer.prototype.hr = function() {
 
 Renderer.prototype.list = function(body, ordered) {
   body = indentLines(this.o.listitem(body));
-  if (!ordered) return body;
-  return changeToOrdered(body);
+  if (ordered) {
+    body = changeToOrdered(body);
+  }
+  if (this.o.reflowText) {
+    body = body
+      .split('\n')
+      .map(function (line) {
+        var indent = line.replace(/^([ ]+).+$/, '$1').length;
+        line = line.replace(/^[ ]+/, (new Array(indent+1)).join('@'));
+        line = reflowText(line, this.o.width, this.options.gfm);
+        line = line.replace(/^[@]+/, (new Array(indent+1)).join(' '));
+        return line;
+      }, this)
+      .join('\n');
+    //body = reflowText(body, this.o.width, this.options.gfm);
+  }
+  return body;
 };
 
 Renderer.prototype.listitem = function(text) {
