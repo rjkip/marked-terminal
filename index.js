@@ -282,7 +282,7 @@ function hr(inputHrStr, length) {
 }
 
 function tab(size) {
-  size = size || 4;
+  size = size || 2;
   return (new Array(size)).join(' ');
 }
 
