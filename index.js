@@ -70,7 +70,7 @@ function fixHardReturn(text, reflow) {
 
 
 Renderer.prototype.code = function(code, lang, escaped) {
-  return '\n' + indentify(highlight(code, lang, this.o, this.highlightOptions)) + '\n\n';
+  return indentify(highlight(code, lang, this.o, this.highlightOptions)) + '\n\n';
 };
 
 Renderer.prototype.blockquote = function(quote) {
