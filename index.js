@@ -91,9 +91,9 @@ Renderer.prototype.heading = function(text, level, raw) {
     text = reflowText(text, this.o.width, this.options.gfm);
   }
   if (level === 1) {
-    return this.o.firstHeading(text) + '\n';
+    return this.o.firstHeading(text) + '\n\n';
   }
-  return this.o.heading(text) + '\n';
+  return this.o.heading(text) + '\n\n';
 };
 
 Renderer.prototype.hr = function() {
